@@ -45,9 +45,9 @@ function getAbsolutePathFromImport(startPath, importedPath){
     functionUsed.forEach((fn) => {
         //console.log(fn);
         if (importedPathList[0] != '.') {
-            result.push(startPathList.slice(0, startPathList.length - (countDD + 1)).concat(importedPathList.slice(countDD)).join('\\') + `!${fn}`);
+            result.push(startPathList.slice(0, startPathList.length - (countDD + 1)).concat(importedPathList.slice(countDD)).join('\\') + `.js!${fn}`);
         } else {
-            result.push(startPathList.slice(0, startPathList.length - (countDD + 1)).concat(importedPathList.slice(countDD + 1)).join('\\') + `!${fn}`);
+            result.push(startPathList.slice(0, startPathList.length - (countDD + 1)).concat(importedPathList.slice(countDD + 1)).join('\\') + `.js!${fn}`);
         }
     });
 

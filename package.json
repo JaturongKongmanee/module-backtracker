@@ -11,13 +11,16 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onLanguage:javascript"
     ],
     "main": "./extension",
     "contributes": {
         "commands": [{
             "command": "extension.sayHello",
             "title": "Hello World"
+        },{
+            "command": "extension.findReferences",
+            "title": "Find References"
         }]
     },
     "scripts": {
