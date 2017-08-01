@@ -1,38 +1,45 @@
 {
-    "name": "module-backtracker",
-    "displayName": "module-backtracker",
-    "description": "To crate the better back tracker",
-    "version": "0.0.1",
-    "publisher": "dillsunnyb11",
-    "engines": {
-        "vscode": "^1.14.0"
-    },
-    "categories": [
-        "Other"
+  "name": "module-backtracker",
+  "displayName": "module-backtracker",
+  "description": "To create the better find references",
+  "version": "1.0.0",
+  "publisher": "dillsunnyb11",
+  "engines": {
+    "vscode": "^1.14.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:.vscode/backtracker.json"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.findReferences",
+        "title": "Find References"
+      }
     ],
-    "activationEvents": [
-        "onLanguage:javascript"
-    ],
-    "main": "./extension",
-    "contributes": {
-        "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
-        },{
-            "command": "extension.findReferences",
-            "title": "Find References"
-        }]
-    },
-    "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "typescript": "^2.0.3",
-        "vscode": "^1.0.0",
-        "mocha": "^2.3.3",
-        "eslint": "^3.6.0",
-        "@types/node": "^6.0.40",
-        "@types/mocha": "^2.2.32"
-    }
+    "keybindings": [
+      {
+        "command": "extension.findReferences",
+        "key": "Alt+F"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^2.0.3",
+    "vscode": "^1.0.0",
+    "mocha": "^2.3.3",
+    "eslint": "^3.6.0",
+    "@types/node": "^6.0.40",
+    "@types/mocha": "^2.2.32"
+  },
+  "dependencies": {
+  }
 }
