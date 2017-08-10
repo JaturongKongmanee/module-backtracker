@@ -1,6 +1,6 @@
-var fs = require('fs');
-var path = require('path');
-var os = require('os');
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
 
 const folderSeperator = (os.platform() == 'linux' || os.platform() == 'darwin') ? '/' : '\\';
 

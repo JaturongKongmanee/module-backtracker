@@ -1,7 +1,7 @@
-var vscode = require('vscode');
-var path = require('path');
-var _ = require('lodash');
-var fileService = require('./fileService');
+const vscode = require('vscode');
+const path = require('path');
+const _ = require('lodash');
+const fileService = require('./fileService');
 
 var _graph = {};
 var _filesCount = 0;
@@ -19,9 +19,9 @@ const processFile = (currentFileName, err, data) => {
         lines = data.split('\n');
             //const regexRequire = /require\s*\(['"](.*)['"]\)/;
 
-        for (var i = 0; i < lines.length; i++){
+        for (let i = 0; i < lines.length; i++){
             //var matchedRequire = regexRequire.exec(lines[i]);
-            var importLineMatch = _regexImport.exec(lines[i]);
+            const importLineMatch = _regexImport.exec(lines[i]);
 
             if (importLineMatch) {
                 const references = fileService.getAbsolutePathFromImport(currentFileName, importLineMatch[1], importLineMatch[2]);
@@ -36,7 +36,7 @@ const processFile = (currentFileName, err, data) => {
                     };
                 }
 
-                for (var j=0; j < references.length; j++){
+                for (let j=0; j < references.length; j++){
                     if (references[j] in _graph) {
                         _graph[references[j]].isRequired.push({
                             uri: vscode.Uri.file(from),
@@ -74,3 +74,4 @@ exports.createGraph = () => {
 }
 
 exports.getGraph = () => _graph;
+

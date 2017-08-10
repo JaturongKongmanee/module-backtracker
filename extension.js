@@ -1,8 +1,8 @@
-var vscode = require('vscode');
-var graph = require('./utils/graph');
-var _ = require('lodash');
+const vscode = require('vscode');
+const graph = require('./utils/graph');
+const _ = require('lodash');
 
-var outputChannel;
+let outputChannel;
 
 function activate(context) {
 
@@ -17,12 +17,12 @@ function activate(context) {
         // TODO: not works on mac when not select all word
         if (selection.isEmpty) {
             const position = editor.selection.active;
-            var newPosition = position.with(position.line, 0);
-            var newSelection = new vscode.Selection(newPosition, newPosition);
+            const newPosition = position.with(position.line, 0);
+            const newSelection = new vscode.Selection(newPosition, newPosition);
             editor.selection = newSelection;
         }
 
-        var text = editor.document.getText(selection);
+        const text = editor.document.getText(selection);
         const currentFile = vscode.window.activeTextEditor.document.fileName + `!${text}`;
 
         if (!outputChannel)
